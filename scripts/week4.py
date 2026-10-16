@@ -8,7 +8,7 @@ if (str(PROJECT_ROOT) not in sys.path):
 from src.database import run_query # noqa:  E402
 from src.penguin_plotting import ( # noqa:  E402
     plot_body_mass_histogram, plot_body_mass_boxplot)
-
+from src.penguin_summaries import summarise_body_mass
 
 query = Path("sql/penguin_body_mass.sql").read_text()
 df = run_query("data/inter.duckdb", query)

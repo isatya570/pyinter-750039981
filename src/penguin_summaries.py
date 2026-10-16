@@ -25,4 +25,11 @@ def summarise_body_mass(df):
     >>> summary = summarise_body_mass(df)
     >>> print(summary.loc["male", "mean"])
     """
-    pass
+    summary = df.groupby('sex').agg(
+        count = ('body_mass_g', 'count'),
+        mean  = ('body_mass_g', 'mean'),
+        maximum = ('body_mass_g', 'max'),
+        minimum = ('body_mass_g', 'min')
+        )
+    
+    return summary
